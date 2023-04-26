@@ -1,0 +1,68 @@
+// import open sans from google fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+*, body, html {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.main__nav {
+    background-color: #1E5367 !important;
+}
+
+.hh100 {
+    height: 72px;
+}
+
+.hh120 {
+    height: 100px;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 300px) 150px;
+    justify-content: center;
+    gap: 10px;
+    .grid-column{
+        display: grid;
+        grid-template-columns: repeat(2, 150px);
+        grid-template-rows: repeat(6, 75px); gap: 5px;
+        &.lastColumn{
+            grid-template-columns:  150px;
+        }
+    }
+    .grid{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url('../public/assets/images/block.png');
+    }
+        .grid__name{
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+    .grid_small {}
+
+    .grid_normal {
+        grid-row-end: span 2; flex-direction: column;
+        
+    }
+
+    .grid_wide {
+        grid-row-end: span 2;
+        grid-column-end: span 2;
+    }
+
+    .grid_large {
+        grid-row-end: span 4;
+        grid-column-end: span 4;
+        max-width: 305px; flex-direction: column;
+    }
+}
+
+.bg-aurora {
+    background-color: aquamarine;
+}
+
+@import './_all.scss';
