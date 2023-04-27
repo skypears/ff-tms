@@ -1,9 +1,9 @@
-import { Container } from "reactstrap";
+
 import Grid from "./Grid";
 
 export default function DashboardGrids() {
   return (
-    <div className="grid-container py-3">
+    <div className="grid-container py-4">
       <div className="grid-column">
         <Grid variant="large" name="Build a Load" icon="build-load"></Grid>
         <Grid variant="normal" name="Rates" icon="rates"></Grid>
@@ -23,7 +23,7 @@ export default function DashboardGrids() {
       </div>
       <div className="grid-column lastColumn">
         <Grid variant="normal" name="Carriers" icon="carriers"></Grid>
-        <Grid variant="normal" name="Location" icon=""></Grid>
+        <Grid variant="normal" name="Locations" icon="location"></Grid>
         <Grid variant="small" name="Help" icon="help"></Grid>
         <Grid variant="small" name="Settings" icon="setting"></Grid>
       </div>
