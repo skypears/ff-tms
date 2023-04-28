@@ -98,7 +98,7 @@ html {
 }
 .content{
     background-color: #465E78;
-    height: 100vh;
+    min-height: 100vh;
 }
 .loads-section .nav-link.active{
    
@@ -114,8 +114,16 @@ html {
     z-index: -100; top: 0; left: 90%;
     
 }
-
-
+.content-section table th{
+    font-weight: bold;
+}
+.tab-content form label.form-label {
+    font-size: small;
+    margin-bottom: unset;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
 
 
 @import './_all.scss';

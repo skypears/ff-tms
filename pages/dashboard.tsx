@@ -13,21 +13,29 @@ import {
   NavbarToggler,
   UncontrolledDropdown,
 } from "reactstrap";
-import { BiBell, BiMessageAltDetail } from "react-icons/bi";
+import { BiArrowBack, BiBell, BiMessageAltDetail } from "react-icons/bi";
 import { CiSettings } from "react-icons/ci";
 import Grids from "@/src/comps/DashboardGrids";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Link from "next/link";
 interface NavBarProps {
   navTitle?: string;
+  className?: string;
 }
-export function NavBar({ navTitle="TMS" }:NavBarProps) {
+export function NavBar({ navTitle = "TMS", className = "px-5" }: NavBarProps) {
   const userAvatar =
     "https://www.citrix.com/blogs/wp-content/upload/2018/03/slack_compressed-e1521621363404-360x360.jpg";
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   return (
-    <Navbar dark expand={"md"} className="px-5 main__nav hh100">
-      
+    <Navbar dark expand={"md"} className={`main__nav hh100 ${className}`}>
+      <Nav>
+        <NavItem>
+          <Link href={"/dashboard"} className="fs-2 pe-2 link-light">
+            <BiArrowBack />
+          </Link>
+        </NavItem>
+      </Nav>
       <NavbarBrand href="/">
         <h3 className="mb-0 fw-bold">{navTitle}</h3>
       </NavbarBrand>
