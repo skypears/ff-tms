@@ -8,6 +8,7 @@ import {
   CardTitle,
   Col,
   Container,
+  Input,
   InputGroup,
   InputGroupText,
   Nav,
@@ -41,14 +42,14 @@ export default function Loads() {
       </Head>
       <section className="content loads-section">
         <NavBar navTitle="Loads" className="px-0" />
-        <Container fluid className=" py-3 ">
+        <Container fluid className="py-3">
           <Row>
             <Col sm={3}>
               <Nav tabs pills vertical className="border-bottom-0">
                 {tabs.map((tab, index) => {
                   index++;
                   return (
-                    <NavItem className="pb-2" key={index}>
+                    <NavItem className="mb-2" key={index}>
                       <NavLink
                         className={`text-dark bg-light opacity-50 py-3 fw-semibold ${
                           activeTab == index.toString()
@@ -69,7 +70,7 @@ export default function Loads() {
               <Container
                 fluid
                 className="bg-light rounded"
-                style={{ height: "600px" }}
+                // style={{ minHeight: "600px" }}
               >
                 <Row>
                   <Col className="px-4">
@@ -170,7 +171,7 @@ function SearchSection({ tab }: { tab: string }) {
         <NavItem>
           <NavLink className="px-0">
             <InputGroup>
-              <input
+              <Input
                 type="text"
                 placeholder={`Search in ${tabs[Number(tab) - 1]}`}
                 className="form-control border-secondary"

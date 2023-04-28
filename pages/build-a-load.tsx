@@ -37,7 +37,7 @@ export default function BuildLoad() {
           <Row>
             <Col sm={3}>
               <Nav tabs pills vertical className="border-bottom-0">
-                <NavItem className="pb-2">
+                <NavItem className="mb-2">
                   <NavLink
                     className={`text-dark bg-light opacity-50 py-4 fw-semibold cursor-pointer ${
                       activeTab == "1" ? "active opacity-100 fw-bold" : ""
@@ -47,7 +47,7 @@ export default function BuildLoad() {
                     Load Basics
                   </NavLink>
                 </NavItem>
-                <NavItem className="pb-2">
+                <NavItem className="mb-2">
                   <NavLink
                     className={`text-dark bg-light  py-4 fw-semibold cursor-pointer ${
                       activeTab == "2"
@@ -59,7 +59,7 @@ export default function BuildLoad() {
                     Customer Info
                   </NavLink>
                 </NavItem>
-                <NavItem className="pb-2">
+                <NavItem className="mb-2">
                   <NavLink
                     className={`text-dark bg-light  py-4 cursor-pointer ${
                       activeTab == "3"
@@ -71,7 +71,7 @@ export default function BuildLoad() {
                     Carrier & Asset Info
                   </NavLink>
                 </NavItem>
-                <NavItem className="pb-2">
+                <NavItem className="mb-2">
                   <NavLink
                     className={`text-dark bg-light  py-4 cursor-pointer ${
                       activeTab == "4"
@@ -83,7 +83,7 @@ export default function BuildLoad() {
                     Edit Stops
                   </NavLink>
                 </NavItem>
-                <NavItem className="pb-2">
+                <NavItem className="mb-2">
                   <NavLink
                     className={`text-dark bg-light  py-4 cursor-pointer ${
                       activeTab == "5"
@@ -101,7 +101,7 @@ export default function BuildLoad() {
               <Container
                 fluid
                 className="bg-light rounded"
-                style={{ height: "600px" }}
+                // style={{ height: "600px" }}
               >
                 <Row>
                   <Col className="p-4">
@@ -225,7 +225,7 @@ export default function BuildLoad() {
                                 <Label>Temperature</Label>
                               </FormGroup>
                             </Col>
-                            <Col sm={4}>
+                            <Col sm={4} className="align-self-end">
                               <FormGroup floating>
                                 <Input
                                   bsSize={"sm"}
@@ -271,8 +271,10 @@ export default function BuildLoad() {
                               </FormGroup>
                             </Col>
                           </Row>
-                          <Row>
-                            <Col xs={12} className="d-flex justify-content-end">
+                          <Row className="button-container">
+                            <Col></Col>
+                            <Col></Col>
+                            <Col className="d-flex justify-content-end mt-3 pe-0">
                               <Button className="me-3">Save Draft</Button>
                               <Button onClick={() => setActiveTab("2")}>
                                 Next : Customer Info
@@ -282,7 +284,158 @@ export default function BuildLoad() {
                         </Form>
                       </TabPane>
                       <TabPane tabId="2">
-                        <section>ABCD</section>
+                        <Row>
+                          <Col className="d-flex justify-content-between mb-3">
+                            <h5 className="fw-bold">Customer Information</h5>
+                            <Button>Add New Customer</Button>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col sm={8}>
+                            <Col sm={6}>
+                              <FormGroup floating>
+                                <Input
+                                  bsSize={"sm"}
+                                  type="text"
+                                  placeholder="Customer"
+                                  form="stepper-form"
+                                />
+                                <Label>Customer</Label>
+                              </FormGroup>
+                            </Col>
+                            <FormGroup floating>
+                              <Input
+                                bsSize={"sm"}
+                                type="text"
+                                placeholder="Address"
+                                form="stepper-form"
+                              />
+                              <Label>Address</Label>
+                            </FormGroup>
+                            <Row>
+                              <Col sm={6}>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Docket Number"
+                                    form="stepper-form"
+                                  />
+                                  <Label>Docket Number</Label>
+                                </FormGroup>
+                              </Col>
+                              <Col sm={6}>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="USDOT Number"
+                                    form="stepper-form"
+                                  />
+                                  <Label>USDOT Number</Label>
+                                </FormGroup>
+                              </Col>
+                              <Col sm={6}>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Credit Limit"
+                                    form="stepper-form"
+                                  />
+                                  <Label>Credit Limit</Label>
+                                </FormGroup>
+                              </Col>
+                              <Col sm={6}>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Available Credit"
+                                    form="stepper-form"
+                                  />
+                                  <Label>Available Credit</Label>
+                                </FormGroup>
+                              </Col>
+                            </Row>
+                            <FormGroup floating>
+                              <Input
+                                bsSize={"sm"}
+                                type="textarea"
+                                rows="3"
+                                // style={{height: "100px"}}
+                                placeholder="Notes:"
+                                form="stepper-form"
+                              />
+                              <Label>Notes:</Label>
+                            </FormGroup>
+                          </Col>
+                          <Col sm={4}>
+                            <div>
+                              <FormGroup floating>
+                                <Input
+                                  bsSize={"sm"}
+                                  type="text"
+                                  placeholder="Customer Name"
+                                  form="stepper-form"
+                                />
+                                <Label>Customer Name</Label>
+                              </FormGroup>
+                              <FormGroup floating>
+                                <Input
+                                  bsSize={"sm"}
+                                  type="text"
+                                  placeholder="Customer Email"
+                                  form="stepper-form"
+                                />
+                                <Label>Customer Email</Label>
+                              </FormGroup>
+                              <FormGroup floating>
+                                <Input
+                                  bsSize={"sm"}
+                                  type="text"
+                                  placeholder="Customer Phone"
+                                  form="stepper-form"
+                                />
+                                <Label>Customer Phone</Label>
+                              </FormGroup>
+                              <FormGroup floating>
+                                <Input
+                                  bsSize={"sm"}
+                                  type="text"
+                                  placeholder="Customer Ext."
+                                  form="stepper-form"
+                                />
+                                <Label>Customer Ext.</Label>
+                              </FormGroup>
+                              <FormGroup floating>
+                                <Input
+                                  bsSize={"sm"}
+                                  type="text"
+                                  placeholder="Customer Ref. No."
+                                  form="stepper-form"
+                                />
+                                <Label>Customer Ref. No.</Label>
+                              </FormGroup>
+                            </div>
+                          </Col>
+                        </Row>
+                        <Row className="button-container">
+                          <Col>
+                            <Button onClick={() => setActiveTab("1")}>
+                              Prev : Load Basics
+                            </Button>
+                          </Col>
+                          <Col></Col>
+                          <Col className="d-flex justify-content-end pe-0">
+                            <div>
+                              <Button className="me-3">Save Draft</Button>
+                              <Button onClick={() => setActiveTab("2")}>
+                                Next : Customer Info
+                              </Button>
+                            </div>
+                          </Col>
+                        </Row>
                       </TabPane>
                       <TabPane tabId="3">
                         <section>EFGH</section>
