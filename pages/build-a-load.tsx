@@ -32,7 +32,7 @@ export default function BuildLoad() {
         <title>Build a Load</title>
       </Head>
       <section className="content loads-section">
-        <NavBar navTitle="Build a Load" className="px-0" />
+        <NavBar navTitle="Build a Load" />
         <Container fluid className=" py-3 ">
           <Row>
             <Col sm={3}>

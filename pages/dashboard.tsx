@@ -20,19 +20,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 interface NavBarProps {
   navTitle?: string;
-  className?: string;
 }
-export function NavBar({ navTitle = "TMS", className = "px-5" }: NavBarProps) {
+export function NavBar({ navTitle = "TMS" }: NavBarProps) {
   const userAvatar =
     "https://www.citrix.com/blogs/wp-content/upload/2018/03/slack_compressed-e1521621363404-360x360.jpg";
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   return (
-    <Navbar dark expand={"md"} className={`main__nav hh100 ${className}`}>
+    <Navbar dark expand={"md"} className={` px-5 main__nav hh100`}>
       <Nav>
         <NavItem>
           <Link href={"/dashboard"} className="fs-2 pe-2 link-light">
-            <BiArrowBack />
+            {//show back button only if navTitle is not equal to TMS
+            }
+            {navTitle !== "TMS" && (<BiArrowBack />)}
+
+            
           </Link>
         </NavItem>
       </Nav>

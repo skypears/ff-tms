@@ -41,7 +41,7 @@ export default function Loads() {
         <title>Loads</title>
       </Head>
       <section className="content loads-section">
-        <NavBar navTitle="Loads" className="px-0" />
+        <NavBar navTitle="Loads" />
         <Container fluid className="py-3">
           <Row>
             <Col sm={3}>
