@@ -1,11 +1,7 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { NavBar } from "./dashboard";
 import {
   Button,
-  Card,
-  CardBody,
-  CardHeader,
-  CardTitle,
   Col,
   Container,
   Form,
@@ -19,13 +15,14 @@ import {
   Row,
   TabContent,
   TabPane,
-  Table,
 } from "reactstrap";
 import { useState } from "react";
-import { BiSearch } from "react-icons/bi";
 import Head from "next/head";
+import { BiSearch } from "react-icons/bi";
+
 export default function BuildLoad() {
   const [activeTab, setActiveTab] = useState<string>("1");
+  const [usingCarrier, setUsingCarrier] = useState<boolean>(true);
   return (
     <>
       <Head>
@@ -37,64 +34,25 @@ export default function BuildLoad() {
           <Row>
             <Col sm={3}>
               <Nav tabs pills vertical className="border-bottom-0">
-                <NavItem className="mb-2">
-                  <NavLink
-                    className={`text-dark bg-light opacity-50 py-4 fw-semibold cursor-pointer ${
-                      activeTab == "1" ? "active opacity-100 fw-bold" : ""
-                    }`}
-                    onClick={() => setActiveTab("1")}
-                  >
-                    Load Basics
-                  </NavLink>
-                </NavItem>
-                <NavItem className="mb-2">
-                  <NavLink
-                    className={`text-dark bg-light  py-4 fw-semibold cursor-pointer ${
-                      activeTab == "2"
-                        ? "active opacity-100 fw-bold"
-                        : "opacity-50 fw-semibold"
-                    }`}
-                    onClick={() => setActiveTab("2")}
-                  >
-                    Customer Info
-                  </NavLink>
-                </NavItem>
-                <NavItem className="mb-2">
-                  <NavLink
-                    className={`text-dark bg-light  py-4 cursor-pointer ${
-                      activeTab == "3"
-                        ? "active opacity-100 fw-bold"
-                        : "opacity-50 fw-semibold"
-                    }`}
-                    onClick={() => setActiveTab("3")}
-                  >
-                    Carrier & Asset Info
-                  </NavLink>
-                </NavItem>
-                <NavItem className="mb-2">
-                  <NavLink
-                    className={`text-dark bg-light  py-4 cursor-pointer ${
-                      activeTab == "4"
-                        ? "active opacity-100 fw-bold"
-                        : "opacity-50 fw-semibold"
-                    }`}
-                    onClick={() => setActiveTab("4")}
-                  >
-                    Edit Stops
-                  </NavLink>
-                </NavItem>
-                <NavItem className="mb-2">
-                  <NavLink
-                    className={`text-dark bg-light  py-4 cursor-pointer ${
-                      activeTab == "5"
-                        ? "active opacity-100 fw-bold"
-                        : "opacity-50 fw-semibold"
-                    }`}
-                    onClick={() => setActiveTab("5")}
-                  >
-                    Financials
-                  </NavLink>
-                </NavItem>
+                {formStepTitles.map((tab, index) => {
+                  index++;
+                  return (
+                    <NavItem className="mb-2" key={index}>
+                      <NavLink
+                        className={`text-dark bg-light opacity-50 py-3 fw-semibold ${
+                          activeTab == index.toString()
+                            ? "active opacity-100 fw-bold"
+                            : ""
+                          }`}
+                        
+                        onClick={() => setActiveTab(index.toString())}
+                      >
+                        {tab}
+                      </NavLink>
+                    </NavItem>
+                  );
+                })}
+                
               </Nav>
             </Col>
             <Col sm={9} className="ps-0" style={{ zIndex: 1 }}>
@@ -115,9 +73,14 @@ export default function BuildLoad() {
                               <FormGroup floating>
                                 <Input
                                   bsSize={"sm"}
-                                  type="text"
+                                  type="select"
                                   placeholder="Load Status"
-                                />
+                                >
+                                  <option>Load Status 1</option>
+                                  <option>Load Status 2</option>
+                                  <option>Load Status 3</option>
+                                  <option>Load Status 4</option>
+                                </Input>
                                 <Label>Load Status</Label>
                               </FormGroup>
 
@@ -142,9 +105,15 @@ export default function BuildLoad() {
                               <FormGroup floating>
                                 <Input
                                   bsSize={"sm"}
-                                  type="text"
+                                  type="select"
                                   placeholder="Branch"
-                                />
+                                >
+                                  
+                                  <option>Branch 1</option>
+                                  <option>Branch 2</option>
+                                  <option>Branch 3</option>
+                                  <option>Branch 4</option>
+                                </Input>
                                 <Label>Branch</Label>
                               </FormGroup>
                               <FormGroup floating>
@@ -184,9 +153,13 @@ export default function BuildLoad() {
                               <FormGroup floating>
                                 <Input
                                   bsSize={"sm"}
-                                  type="text"
+                                  type="select"
                                   placeholder="New or Used Goods"
-                                />
+                                >
+                                  <option>New or Used Goods 1</option>
+                                  <option>New or Used Goods 2</option>
+                                  <option>New or Used Goods 3</option>
+                                </Input>
                                 <Label>New or Used Goods</Label>
                               </FormGroup>
                             </Col>
@@ -248,32 +221,32 @@ export default function BuildLoad() {
                                 <Input
                                   bsSize={"sm"}
                                   type="text"
-                                  placeholder="Equipment Type"
+                                  placeholder="Public Load Note"
                                 />
-                                <Label>Equipment Type</Label>
+                                <Label>Public Load Note</Label>
                               </FormGroup>
 
                               <FormGroup floating>
                                 <Input
                                   bsSize={"sm"}
                                   type="text"
-                                  placeholder="Intermodal/Dray Container No."
+                                  placeholder="Private Load Note"
                                 />
-                                <Label>Intermodal/Dray Container No.</Label>
+                                <Label>Private Load Note</Label>
                               </FormGroup>
                               <FormGroup floating>
                                 <Input
                                   bsSize={"sm"}
                                   type="text"
-                                  placeholder="Temperature"
+                                  placeholder="Load Posting Notes / Comments"
                                 />
-                                <Label>Temperature</Label>
+                                <Label>Load Posting Notes / Comments</Label>
                               </FormGroup>
                             </Col>
                           </Row>
                           <Row className="button-container">
                             <Col></Col>
-                            <Col></Col>
+
                             <Col className="d-flex justify-content-end mt-3 pe-0">
                               <Button className="me-3">Save Draft</Button>
                               <Button onClick={() => setActiveTab("2")}>
@@ -296,10 +269,13 @@ export default function BuildLoad() {
                               <FormGroup floating>
                                 <Input
                                   bsSize={"sm"}
-                                  type="text"
+                                  type="select"
                                   placeholder="Customer"
-                                  form="stepper-form"
-                                />
+                                >
+                                  <option>Customer 1</option>
+                                  <option>Customer 2</option>
+                                  <option>Customer 3</option>
+                                  </Input>
                                 <Label>Customer</Label>
                               </FormGroup>
                             </Col>
@@ -308,7 +284,6 @@ export default function BuildLoad() {
                                 bsSize={"sm"}
                                 type="text"
                                 placeholder="Address"
-                                form="stepper-form"
                               />
                               <Label>Address</Label>
                             </FormGroup>
@@ -319,7 +294,6 @@ export default function BuildLoad() {
                                     bsSize={"sm"}
                                     type="text"
                                     placeholder="Docket Number"
-                                    form="stepper-form"
                                   />
                                   <Label>Docket Number</Label>
                                 </FormGroup>
@@ -330,7 +304,6 @@ export default function BuildLoad() {
                                     bsSize={"sm"}
                                     type="text"
                                     placeholder="USDOT Number"
-                                    form="stepper-form"
                                   />
                                   <Label>USDOT Number</Label>
                                 </FormGroup>
@@ -341,7 +314,6 @@ export default function BuildLoad() {
                                     bsSize={"sm"}
                                     type="text"
                                     placeholder="Credit Limit"
-                                    form="stepper-form"
                                   />
                                   <Label>Credit Limit</Label>
                                 </FormGroup>
@@ -352,7 +324,6 @@ export default function BuildLoad() {
                                     bsSize={"sm"}
                                     type="text"
                                     placeholder="Available Credit"
-                                    form="stepper-form"
                                   />
                                   <Label>Available Credit</Label>
                                 </FormGroup>
@@ -365,7 +336,6 @@ export default function BuildLoad() {
                                 rows="3"
                                 // style={{height: "100px"}}
                                 placeholder="Notes:"
-                                form="stepper-form"
                               />
                               <Label>Notes:</Label>
                             </FormGroup>
@@ -377,7 +347,6 @@ export default function BuildLoad() {
                                   bsSize={"sm"}
                                   type="text"
                                   placeholder="Customer Name"
-                                  form="stepper-form"
                                 />
                                 <Label>Customer Name</Label>
                               </FormGroup>
@@ -386,7 +355,6 @@ export default function BuildLoad() {
                                   bsSize={"sm"}
                                   type="text"
                                   placeholder="Customer Email"
-                                  form="stepper-form"
                                 />
                                 <Label>Customer Email</Label>
                               </FormGroup>
@@ -395,7 +363,6 @@ export default function BuildLoad() {
                                   bsSize={"sm"}
                                   type="text"
                                   placeholder="Customer Phone"
-                                  form="stepper-form"
                                 />
                                 <Label>Customer Phone</Label>
                               </FormGroup>
@@ -404,7 +371,6 @@ export default function BuildLoad() {
                                   bsSize={"sm"}
                                   type="text"
                                   placeholder="Customer Ext."
-                                  form="stepper-form"
                                 />
                                 <Label>Customer Ext.</Label>
                               </FormGroup>
@@ -413,7 +379,6 @@ export default function BuildLoad() {
                                   bsSize={"sm"}
                                   type="text"
                                   placeholder="Customer Ref. No."
-                                  form="stepper-form"
                                 />
                                 <Label>Customer Ref. No.</Label>
                               </FormGroup>
@@ -426,19 +391,232 @@ export default function BuildLoad() {
                               Prev : Load Basics
                             </Button>
                           </Col>
-                          <Col></Col>
+
                           <Col className="d-flex justify-content-end pe-0">
                             <div>
                               <Button className="me-3">Save Draft</Button>
-                              <Button onClick={() => setActiveTab("2")}>
-                                Next : Customer Info
+                              <Button onClick={() => setActiveTab("3")}>
+                                Next : Carrier & Asset Info
                               </Button>
                             </div>
                           </Col>
                         </Row>
                       </TabPane>
                       <TabPane tabId="3">
-                        <section>EFGH</section>
+                        <Row>
+                          <Col>
+                            <h5 className="fw-bold">Carrier & Asset Info</h5>
+                            <h6 className="text-primary small">
+                              Please select one of the following Options
+                            </h6>
+                          </Col>
+                        </Row>
+                        <Row className="mb-3">
+                          <Col>
+                            <FormGroup check>
+                              <Label check>
+                                <Input
+                                  type="radio"
+                                  name="carrier"
+                                  checked={usingCarrier}
+                                  onChange={() => setUsingCarrier(true)}
+                                />
+                                I am using my own asset/driver as the carrier
+                                for this load.
+                              </Label>
+                            </FormGroup>
+                          </Col>
+                        </Row>
+                        {usingCarrier && (
+                          <Row>
+                            <Col sm={4}>
+                              <div>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Carrier"
+                                  />
+                                  <Label>Carrier</Label>
+                                </FormGroup>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Address"
+                                  />
+                                  <Label>Address</Label>
+                                </FormGroup>
+                              </div>
+                            </Col>
+                            <Col sm={4}>
+                              <div>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Docket No."
+                                  />
+                                  <Label>Docket No.</Label>
+                                </FormGroup>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Primary Contact"
+                                  />
+                                  <Label>Primary Contact</Label>
+                                </FormGroup>
+                              </div>
+                            </Col>
+                            <Col sm={4}>
+                              <div>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="USDOT No."
+                                  />
+                                  <Label>USDOT No.</Label>
+                                </FormGroup>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Contact Email"
+                                  />
+                                  <Label>Contact Email</Label>
+                                </FormGroup>
+                              </div>
+                            </Col>
+                            <Row>
+                              <h6 className="text-warning">
+                                Driver and Equipment Information for this Load
+                              </h6>
+                            </Row>
+                            <Col sm={4}>
+                              <div>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Driver"
+                                  />
+                                  <Label>Driver</Label>
+                                </FormGroup>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Power Unit"
+                                  />
+                                  <Label>Power Unit</Label>
+                                </FormGroup>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Trailer"
+                                  />
+                                  <Label>Trailer</Label>
+                                </FormGroup>
+                              </div>
+                            </Col>
+                            <Col sm={4}>
+                              <div>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Overall Load Length"
+                                  />
+                                  <Label>Overall Load Length</Label>
+                                </FormGroup>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Overall Load Height"
+                                  />
+                                  <Label>Overall Load Height</Label>
+                                </FormGroup>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Overall Load Width"
+                                  />
+                                  <Label>Overall Load Width</Label>
+                                </FormGroup>
+                              </div>
+                            </Col>
+                            <Col sm={4}>
+                              <div>
+                                <FormGroup floating>
+                                  <Input
+                                    bsSize={"sm"}
+                                    type="text"
+                                    placeholder="Total Gross Vehicle Weight"
+                                  />
+                                  <Label>Total Gross Vehicle Weight</Label>
+                                </FormGroup>
+                              </div>
+                            </Col>
+                          </Row>
+                        )}
+
+                        <Row>
+                          <Col>
+                            <FormGroup check className="mb-4">
+                              <Label check>
+                                <Input
+                                  type="radio"
+                                  name="carrier"
+                                  checked={!usingCarrier}
+                                  onChange={() => setUsingCarrier(false)}
+                                />
+                                I am using an outside carrier for this load.
+                              </Label>
+                            </FormGroup>
+                          </Col>
+                        </Row>
+                        {!usingCarrier && (
+                          <Row>
+                            <Col sm={5}>
+                              <FormGroup>
+                                <InputGroup>
+                                  <Input
+                                    type="text"
+                                    width={"100%"}
+                                    placeholder=""
+                                    className="form-control border-secondary"
+                                  />
+                                  <Button color="secondary" outline>
+                                    <BiSearch className="me-2" />
+                                    Search Carrier List
+                                  </Button>
+                                </InputGroup>
+                              </FormGroup>
+                            </Col>
+                          </Row>
+                        )}
+
+                        <Row className="button-container">
+                          <Col>
+                            <Button onClick={() => setActiveTab("2")}>
+                              Prev : Customer Info
+                            </Button>
+                          </Col>
+
+                          <Col className="d-flex justify-content-end pe-0">
+                            <div>
+                              <Button className="me-3">Save Draft</Button>
+                              <Button onClick={() => setActiveTab("4")}>
+                                Next : Edit Stops
+                              </Button>
+                            </div>
+                          </Col>
+                        </Row>
                       </TabPane>
                       <TabPane tabId="4">
                         <section>IJKL</section>
@@ -457,3 +635,11 @@ export default function BuildLoad() {
     </>
   );
 }
+
+const formStepTitles = [
+  "Load Basics",
+  "Customer Info",
+  "Carrier & Asset Info",
+  "Edit Stops",
+  "Financials",
+];

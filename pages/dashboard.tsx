@@ -16,7 +16,7 @@ import {
 import { BiArrowBack, BiBell, BiMessageAltDetail } from "react-icons/bi";
 import { CiSettings } from "react-icons/ci";
 import Grids from "@/src/comps/DashboardGrids";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 interface NavBarProps {
   navTitle?: string;
@@ -34,8 +34,6 @@ export function NavBar({ navTitle = "TMS" }: NavBarProps) {
             {//show back button only if navTitle is not equal to TMS
             }
             {navTitle !== "TMS" && (<BiArrowBack />)}
-
-            
           </Link>
         </NavItem>
       </Nav>

@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { NavBar } from "./dashboard";
 import {
   Button,
@@ -10,7 +10,6 @@ import {
   Container,
   Input,
   InputGroup,
-  InputGroupText,
   Nav,
   NavItem,
   NavLink,

@@ -5,8 +5,13 @@ body,
 html {
     font-family: 'Open Sans', sans-serif !important;
 }
+:root{
+    --header-color : #454545;
+    --body-color :  #465E78;
+}
+
 .main__nav {
-    background-color: #454545 !important;
+    background-color: var(--header-color);
 }
 .hh100 {
     height: 72px;
@@ -73,11 +78,9 @@ html {
         flex-direction: column;
     }
 }
-.bg-aurora {
-    background-color: aquamarine;
-}
+
 .content{
-    background-color: #465E78;
+    background-color: var(--body-color);
     min-height: 100vh;
 }
 .loads-section .nav-link.active{
@@ -95,20 +98,26 @@ html {
 .content-section table th{
     font-weight: bold;
 }
-.tab-content form label.form-label {
-    font-size: small;
-    margin-bottom: unset;
-}
+
 .cursor-pointer{
     cursor: pointer;
 }
 .tab-pane{
-    position: relative;
+    // position: relative;
+    &.active{
+         display: flex !important;
+    }
+    .form-label {
+       font-size: small;
+       margin-bottom: unset;
+   }
+    flex-direction: column;
     min-height: 560px;
     .button-container{
-        position: absolute;
-        width: 100%;
-        bottom: 0;
+       margin-top: auto;
     }
+}
+.fs-small {
+    font-size: small;
 }
 @import './_all.scss';

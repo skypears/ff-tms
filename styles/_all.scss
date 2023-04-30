@@ -1,9 +1,9 @@
-// @import '~bootstrap/scss/bootstrap';
+
+$primary: #465E78;
+$warning : #d99a21;
 
 // @Override
-.navbar-nav{
-    --bs-navbar-color: #fcfcfc !important;
-}
-.fs-small{
-    font-size: small;
-}
+@import '~bootstrap/scss/bootstrap';
+
+
+
